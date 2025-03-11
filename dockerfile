@@ -14,7 +14,7 @@ WORKDIR /api
 
 copy --from=builder /api/node_modules ./node_modules
 copy --from=builder /api/package.json ./package.json 
-copy --from=builder /app/index.js ./index.js
+copy --from=builder /api/index.js ./index.js
 
 EXPOSE 3000
 
