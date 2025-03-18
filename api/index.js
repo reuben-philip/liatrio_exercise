@@ -8,7 +8,6 @@ app.get('/', (req,res) => {
         message:"My name is Reuben",
         timestamp: Date.now()
     };
-    res.setHeader('Content-Type', 'application/json')
     res.send(JSON.stringify(data))
 });
 
