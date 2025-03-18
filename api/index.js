@@ -10,10 +10,16 @@ app.get('/', (req,res) => {
     };
     res.send(JSON.stringify(data))*/
 
-    res.json({
+    /*res.json({
         message:"My name is Reuben",
         timestamp: Date.now()
-    });
+    });*/
+
+    res.setHeader('Content-Type', 'application/json');
+    res.send(JSON.stringify({
+        message: "My name is Reuben",
+        timestamp: Date.now()
+    }));
 });
 
 app.listen(port, () => {
