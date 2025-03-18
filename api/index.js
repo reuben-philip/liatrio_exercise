@@ -4,11 +4,16 @@ const port = 80
 
 
 app.get('/', (req,res) => {
-    const data = {
+    /*const data = {
         message:"My name is Reuben",
         timestamp: Date.now()
     };
-    res.send(JSON.stringify(data))
+    res.send(JSON.stringify(data))*/
+
+    res.json({
+        message:"My name is Reuben",
+        timestamp: Date.now()
+    });
 });
 
 app.listen(port, () => {
