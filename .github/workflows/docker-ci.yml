@@ -30,7 +30,7 @@ jobs:
       
       - name: Run Docker Container
         run: |
-            docker run -d -p 3000:3000 --name my-api-container my-api
+            docker run -d -p 80:80 --name my-api-container my-api
             sleep 5
       
       - name: Build and push Docker image
