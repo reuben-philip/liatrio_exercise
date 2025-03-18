@@ -1,8 +1,8 @@
-FROM node:16-alpine as builder
+FROM node:16-alpine AS builder
 
 WORKDIR /api
 
-copy api/package*.json ./
+COPY api/package*.json ./
 
 RUN npm install 
 
@@ -12,9 +12,9 @@ FROM node:16-alpine
 
 WORKDIR /api
 
-copy --from=builder /api/node_modules ./node_modules
-copy --from=builder /api/package.json ./package.json 
-copy --from=builder /api/index.js ./index.js
+COPY --from=builder /api/node_modules ./node_modules
+COPY --from=builder /api/package.json ./package.json 
+COPY --from=builder /api/index.js ./index.js
 
 EXPOSE 3000
 
