@@ -16,7 +16,7 @@ COPY --from=builder /api/node_modules ./node_modules
 COPY --from=builder /api/package.json ./package.json 
 COPY --from=builder /api/index.js ./index.js
 
-EXPOSE 3000
+EXPOSE 80
 
 ENV NODE_ENV=production
 

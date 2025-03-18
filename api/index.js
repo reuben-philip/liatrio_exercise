@@ -1,8 +1,8 @@
 const express = require ('express')
 const app = express()
-const port = 3000
+const port = 80
 
-app.get('/api', (req,res) => {
+app.get('/', (req,res) => {
     const data = {
         message:"My name is Reuben",
         timestamp: Date.now()
