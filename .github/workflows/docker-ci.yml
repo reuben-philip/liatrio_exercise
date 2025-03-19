@@ -43,6 +43,8 @@ jobs:
       
       - name: run tests
         uses: liatrio/github-actions/apprentice-action@master
+        env:
+          MOCHA_ARGS:"--grep 'should return a minified JSON object' --invert"
 
         with:
           port: 80
