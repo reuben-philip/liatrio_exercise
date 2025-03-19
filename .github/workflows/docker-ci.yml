@@ -42,20 +42,4 @@ jobs:
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/my-api:latest
       
       - name: run tests
-        uses: liatrio/github-actions/apprentice-action@master
-        id: tests
-        continue-on-error: true
-
-      - name: Capture Test Output and Ignore Specific Failure
-        run: |
-          TEST_LOG=$(mktemp)  
-          liatrio/github-actions/apprentice-action@master | tee $TEST_LOG
-          
-          if grep -q "should return a minified JSON object." "$TEST_LOG"; then
-            echo "Ignoring known failing test."
-            exit 0
-          else
-            echo "Unexpected test failure detected!"
-            exit 1
-          fi
-
+        uses: liatrio/github-actions/apprentice-action@0b41561cca6822cc8d880fe0e49e7807a41fdf91
