@@ -45,8 +45,9 @@ jobs:
         uses: liatrio/github-actions/apprentice-action@master
         id: tests
         continue-on-error: false
-        run: |
-          liatrio/github-actions/apprentice-action@master | tee tests.log
+
+      - name: Capture Test Output
+        run: liatrio/github-actions/apprentice-action@master | tee tests.log
 
       - name: Check Test Results and Ignore Minified JSON Test Failure
         run: |
