@@ -22,13 +22,13 @@ jobs:
       
       - name: Build docker image
         run: |
-          docker build -t gcr.io/${{ secrets.GCP_PROJECT }}/my-api .
-          docker push gcr.io/${{ secrets.GCP_PROJECT }}/my-api 
+          docker build -t us-central1-docker.pkg.dev/${{ secrets.GCP_PROJECT }}/my-api/my-api .
+          docker push us-central1-docker.pkg.dev/${{ secrets.GCP_PROJECT }}/my-api/my-api
       
       - name: deploy to cloud
         run: |
           gcloud run deploy my-api \
-            --image=gcr.io/${{ secrets.GCP_PROJECT }}/my-api \
+            --image=us-central1-docker.pkg.dev/${{ secrets.GCP_PROJECT }}/my-api/my-api \
             --platform=managed \
             --region=us-central1 \
             --allow-unauthenticated
