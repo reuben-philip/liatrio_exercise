@@ -17,10 +17,13 @@ jobs:
         with: 
           credentials_json: ${{secrets.GCP_CREDENTIALS}}
       
+      - name: Configure Docker to use gcloud
+        run: gcloud auth configure-docker
+      
       - name: Build docker image
         run: |
           docker build -t gcr.io/${{ secrets.GCP_PROJECT }}/my-api .
-          docker push gcr.io/${{ secrets.GCP_PROJECT }}/my-api
+          docker push gcr.io/${{ secrets.GCP_PROJECT }}/my-api 
       
       - name: deploy to cloud
         run: |
