@@ -7,7 +7,8 @@ app.get('/', (req,res) => {
     res.json({
         message:"My name is Reuben",
         timestamp: Date.now(),
-        test:"test"
+        test:"test",
+        color: "red"
     });
 
 });
