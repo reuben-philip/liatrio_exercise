@@ -1,5 +1,4 @@
 name: DOCKER CI/CD PIPELINE
-
 on:
   push:
     branches: 
