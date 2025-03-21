@@ -6,7 +6,8 @@ const port =process.env.PORT || 80
 app.get('/', (req,res) => {
     res.json({
         message:"My name is Reuben",
-        timestamp: Date.now()
+        timestamp: Date.now(),
+        test:"test"
     });
 
 });
