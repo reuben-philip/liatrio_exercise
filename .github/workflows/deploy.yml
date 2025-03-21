@@ -1,0 +1,32 @@
+name: Deploy to cloud CI/CD PIPELINE
+
+on:
+  push:
+    branches:
+      - main
+
+jobs: 
+  deploy: 
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Authenticate with Google Cloud
+        uses: google-github-actions/auth@v1
+        with: 
+          credentials: ${{secrets.GCP_CREDENTIALS}}
+      
+      - name: Build docker image
+        run: |
+          docker build -t gcr.io/${{ secrets.GCP_PROJECT }}/my-api .
+          docker push gcr.io/${{ secrets.GCP_PROJECT }}/my-api
+      
+      - name: deploy to cloud
+        run: |
+          gcloud run deploy my-api \
+            --image=gcr.io/${{ secrets.GCP_PROJECT }}/my-api \
+            --platform=managed \
+            --region=us-central1 \
+            --allow-unauthenticated
+
