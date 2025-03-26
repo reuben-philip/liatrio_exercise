@@ -9,7 +9,8 @@ const port =process.env.PORT || 80
 app.get('/', (req,res) => {
     const data = {
         message:"My name is Reuben",
-        timestamp: Date.now()
+        timestamp: Date.now(),
+        color: "red"
     };
 
     //send object as JSON to the client
