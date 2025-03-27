@@ -23,7 +23,7 @@ COPY --from=builder /api/package.json ./package.json
 COPY --from=builder /api/index.js ./index.js
 
 #open the port for incoming requests
-EXPOSE 3000
+EXPOSE 80
 
 #set environment variable for production mode
 ENV NODE_ENV=production
