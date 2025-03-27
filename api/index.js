@@ -10,6 +10,8 @@ app.get('/', (req,res) => {
     const data = {
         message:"My name is Reuben",
         timestamp: Date.now(),
+        color: "green"
+
     };
 
     //send object as JSON to the client
