@@ -3,14 +3,13 @@ const express = require ('express')
 const app = express()
 
 //set the port to use the environment variable or port 80
-const port =process.env.PORT || 80
+const port =80
 
 //route for HTTP GET requests to the root URL
 app.get('/', (req,res) => {
     const data = {
         message:"My name is Reuben",
         timestamp: Date.now(),
-        color: "red"
     };
 
     //send object as JSON to the client
